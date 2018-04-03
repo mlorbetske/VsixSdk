@@ -1,0 +1,28 @@
+﻿<!--
+***********************************************************************************************
+Sdk.props
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (c) .NET Foundation. All rights reserved. 
+***********************************************************************************************
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Condition="'$(DisableImplicitReferences)' != 'true'">
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="*" Condition="'$(MinVsVersion)' == '' AND '$(MaxVsVersion)' == ''" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="(0.0.1,$(MaxVsVersion).0)" Condition="'$(MinVsVersion)' == '' AND '$(MaxVsVersion)' != ''" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="($(MinVsVersion).0,99.99.99)" Condition="'$(MinVsVersion)' != '' AND '$(MaxVsVersion)' == ''" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="($(MinVsVersion).0,$(MaxVsVersion).0)" Condition="'$(MinVsVersion)' != '' AND '$(MaxVsVersion)' != ''" />
+  </ItemGroup>
+
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition=" Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets') " />
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+  <Import Project="$(RootMSBuildProjectExtensionsPath)$(OriginalProjectName).*.targets" Condition=" '$(MSBuildProjectName)' != '$(OriginalProjectName)' and '$(ImportProjectExtensionProps)' == 'true' and exists('$(RootMSBuildProjectExtensionsPath)')" />
+  <Target Name="WorkaroundForXAMLIntellisenseBuildIssue" AfterTargets="_CheckCompileDesignTimePrerequisite">
+    <PropertyGroup>
+      <BuildingProject>false</BuildingProject>
+    </PropertyGroup>
+  </Target>
+</Project>

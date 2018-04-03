@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PackageVersion>1.0.0-alpha.3</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Sdk\Sdk.props">
+      <Pack>true</Pack>
+      <PackagePath>Sdk</PackagePath>
+    </Content>
+    <Content Include="Sdk\Sdk.targets">
+      <Pack>true</Pack>
+      <PackagePath>Sdk</PackagePath>
+    </Content>
+
+    <Content Include="build\Microsoft.Vsix.Sdk.props">
+      <Pack>true</Pack>
+      <PackagePath>build</PackagePath>
+    </Content>
+    <Content Include="build\Microsoft.Vsix.Sdk.targets">
+      <Pack>true</Pack>
+      <PackagePath>build</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>
