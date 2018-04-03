@@ -29,9 +29,12 @@ Copyright (c) .NET Foundation. All rights reserved.
 
   <PropertyGroup>
     <IsUsingVsixSdk>True</IsUsingVsixSdk>
+    
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
 
     <SchemaVersion>2.0</SchemaVersion>
-    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
@@ -43,6 +46,8 @@ Copyright (c) .NET Foundation. All rights reserved.
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectCapability Include="VsixSdkProject" />
+    
   	<None Update="*.vsixmanifest" SubType="Designer" />
     <None Remove="**\*.png;**\*.ico" />
     <Content Include="**\*.png;**\*.ico" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" IncludeInVSIX="true" />
