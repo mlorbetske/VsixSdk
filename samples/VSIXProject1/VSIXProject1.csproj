@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.Net.Sdk">
   
   <PropertyGroup>
-    <EnableDefaultItems>true</EnableDefaultItems>
     <Configurations>Debug;Release</Configurations>
     <Platforms>AnyCPU</Platforms>
     <TargetFramework>net461</TargetFramework>
