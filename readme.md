@@ -28,3 +28,7 @@ The designer for the vsixmanifest file doesn't work
  
 The item templates for extensiblity projects don't show up
  - This is a known limitation for now
+
+**Credit**
+
+A lot of what's here is adapted from [AArnott/VSIXProjectWithPackageReferences](https://github.com/AArnott/VSIXProjectWithPackageReferences/blob/netsdk/VSIXProject11/VSIXProject11.csproj)
